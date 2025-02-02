@@ -33,7 +33,8 @@ class _NewsListState extends State<NewsList> {
   @override
   Widget build(BuildContext context) {
     return isLoading
-        ? SliverToBoxAdapter(
+        ? SliverFillRemaining(
+            hasScrollBody: false,
             child: Center(
               child: CircularProgressIndicator(),
             ),
