@@ -8,7 +8,7 @@ class NewService {
 
   Future<List<ArticleModel>> getNews() async {
     return await Future.delayed(
-      Duration(seconds: 15),
+      Duration(seconds: 1),
       () async {
         Response response = await dio.get(
             "https://newsapi.org/v2/top-headlines?category=health&apiKey=a3e569f3623a45e4890c9d78634a25f7");
