@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/models/article_model.dart';
 
-import '../models/article_model.dart';
 import '../services/new_service.dart';
 import 'news_tile_list_view.dart';
 
@@ -13,42 +13,38 @@ class NewsListViewBuilder extends StatefulWidget {
 }
 
 class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
-  List<ArticleModel> articles = [];
-  bool isLoading = true;
-
-  getIt() async {
-    articles = await NewService(Dio()).getNews();
-    isLoading = false;
-    setState(() {});
-  }
-
+  var future;
   @override
   void initState() {
-    // TODO: implement initState
-    super.initState();
-    getIt();
+    future = NewService(Dio()).getNews();
   }
 
   @override
   Widget build(BuildContext context) {
-    return isLoading
-        ? SliverFillRemaining(
+    return FutureBuilder<List<ArticleModel>>(
+      future: future,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return NewsListView(articleModelList: snapshot.data!);
+        } else if (snapshot.hasError) {
+          return SliverFillRemaining(
+            hasScrollBody: false,
+            child: Center(
+              child: Text(
+                'Oops there was an error',
+                style: TextStyle(fontSize: 24),
+              ),
+            ),
+          );
+        } else {
+          return SliverFillRemaining(
             hasScrollBody: false,
             child: Center(
               child: CircularProgressIndicator(),
             ),
-          )
-        : articles.isEmpty
-            ? SliverFillRemaining(
-                hasScrollBody: false,
-                child: Center(
-                  child: Text(
-                    'Oops there was an error',
-                    style: TextStyle(fontSize: 24),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              )
-            : NewsListView(articleModelList: articles);
+          );
+        }
+      },
+    );
   }
 }

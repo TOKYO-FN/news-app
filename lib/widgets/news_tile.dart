@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/models/article_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class NewsTile extends StatelessWidget {
   const NewsTile({super.key, required this.articleModel});
@@ -12,8 +13,11 @@ class NewsTile extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(16),
-            child: Image.network(articleModel.image ??
-                "https://deadline.com/wp-content/uploads/2025/01/Dogman-and-Companion-1.jpg?w=1024"),
+            child: articleModel.image != null
+                ? Image.network(
+                    articleModel.image!,
+                  )
+                : Image.asset('assets/error.jpeg'),
           ),
           Text(
             articleModel.title,
