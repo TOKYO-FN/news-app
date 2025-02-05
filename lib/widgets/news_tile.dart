@@ -14,8 +14,10 @@ class NewsTile extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(16),
             child: articleModel.image != null
-                ? Image.network(
-                    articleModel.image!,
+                ? CachedNetworkImage(
+                    imageUrl: articleModel.image!,
+                    placeholder: (context, url) => CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
                   )
                 : Image.asset('assets/error.jpeg'),
           ),

@@ -16,7 +16,7 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
   var future;
   @override
   void initState() {
-    future = NewService(Dio()).getNews();
+    future = NewService(Dio()).getNews('science');
   }
 
   @override
