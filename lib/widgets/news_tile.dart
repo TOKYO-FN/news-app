@@ -15,9 +15,11 @@ class NewsTile extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             child: articleModel.image != null
                 ? CachedNetworkImage(
+                    useOldImageOnUrlChange: true,
                     imageUrl: articleModel.image!,
                     placeholder: (context, url) => CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    errorWidget: (context, url, error) =>
+                        Icon(Icons.error, color: Colors.red),
                   )
                 : Image.asset('assets/error.jpeg'),
           ),
