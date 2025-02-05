@@ -4,37 +4,45 @@ import 'package:news_app/models/category_card_model.dart';
 import 'category_card.dart';
 
 class CategoriesListView extends StatelessWidget {
-  const CategoriesListView({
+  CategoriesListView({
     super.key,
   });
-  final List<CategoryModel> categoryModels = const <CategoryModel>[
+
+  final List<CategoryModel> categoryModels = <CategoryModel>[
     CategoryModel(
+      category: 'sport',
       image: 'assets/sports.avif',
       categoryName: 'Sports',
     ),
     CategoryModel(
-      image: 'assets/general.avif',
-      categoryName: 'General',
-    ),
-    CategoryModel(
+      category: 'science',
       image: 'assets/science.avif',
       categoryName: 'Science',
     ),
     CategoryModel(
+      category: 'health',
       image: 'assets/health.avif',
       categoryName: 'Health',
     ),
     CategoryModel(
-      image: 'assets/entertaiment.avif',
+      category: 'entertainment',
+      image: 'assets/entertainment.avif',
       categoryName: 'Entertainment',
     ),
     CategoryModel(
+      category: 'technology',
       image: 'assets/technology.jpeg',
       categoryName: 'Technology',
     ),
     CategoryModel(
+      category: 'business',
       image: 'assets/business.avif',
       categoryName: 'Business',
+    ),
+    CategoryModel(
+      category: 'general',
+      image: 'assets/general.avif',
+      categoryName: 'General',
     ),
   ];
 

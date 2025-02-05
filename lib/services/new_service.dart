@@ -6,9 +6,9 @@ class NewService {
 
   NewService(this.dio);
 
-  Future<List<ArticleModel>> getNews(String type) async {
+  Future<List<ArticleModel>> getNews({required String category}) async {
     Response response = await dio.get(
-        "https://newsapi.org/v2/top-headlines?category=$type&apiKey=a3e569f3623a45e4890c9d78634a25f7");
+        "https://newsapi.org/v2/top-headlines?category=$category&apiKey=a3e569f3623a45e4890c9d78634a25f7");
     Map<String, dynamic> jsonData = response.data;
     List<dynamic> articles = jsonData['articles'];
     List<ArticleModel> articlesList = <ArticleModel>[];
