@@ -1,16 +1,31 @@
 # news_app
 
-A new Flutter project.
+A Flutter application that fetches and displays the latest articles from various categories, providing users with a seamless news browsing experience.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Browse articles by category
+- Search functionality
+- Bookmark articles for later reading
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Clone the repository: `git clone <repository-url>`
+2. Navigate to the project directory: `cd news_app`
+3. Install dependencies: `flutter pub get`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Usage
+
+Run the app using: `flutter run`
+
+## Dependencies
+
+- `flutter`: SDK for Flutter
+- `cupertino_icons`: ^1.0.8
+- `dio`: ^5.8.0+1
+- `cached_network_image`: ^3.4.1
+- `webview_flutter`: ^4.10.0
+
+## Assets
+
+This project includes assets located in the `assets/` directory for images and other resources.
