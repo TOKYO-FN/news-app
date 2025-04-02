@@ -4,9 +4,8 @@ A Flutter application that fetches and displays the latest articles from various
 
 ## Features
 
-- Browse articles by category
-- Search functionality
-- Bookmark articles for later reading
+- **Browse articles by category**: Users can easily navigate through different categories such as Business, Entertainment, Health, Science, Sports, and Technology to find articles that interest them.
+- **Responsive design**: The app is designed to work seamlessly on various screen sizes, providing an optimal viewing experience on both mobile and tablet devices.
 
 ## Installation
 
@@ -29,3 +28,7 @@ Run the app using: `flutter run`
 ## Assets
 
 This project includes assets located in the `assets/` directory for images and other resources.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
